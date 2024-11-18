@@ -1,0 +1,98 @@
+[Format]      =  1
+[Precision]   =  1e-008
+[MinAngle]    =  30
+[DoSmartMesh] =  1
+[Depth]       =  1
+[LengthUnits] =  centimeters
+[ProblemType] =  planar
+[Coordinates] =  cartesian
+[Comment]     =  "Add comments here."
+[PointProps]   = 0
+[BdryProps]   = 1
+  <BeginBdry>
+    <BdryName> = "Contorno"
+    <BdryType> = 1
+    <Vs> = 0
+    <qs> = 0
+    <c0> = 0
+    <c1> = 0
+  <EndBdry>
+[BlockProps]  = 1
+  <BeginBlock>
+    <BlockName> = "Agua"
+    <ex> = 5
+    <ey> = 5
+    <qv> = 0
+  <EndBlock>
+[ConductorProps]  = 2
+  <BeginConductor>
+    <ConductorName> = "Ánodo"
+    <Vc> = 12
+    <qc> = 0
+    <ConductorType> = 1
+  <EndConductor>
+  <BeginConductor>
+    <ConductorName> = "Cátodo"
+    <Vc> = 0
+    <qc> = 0
+    <ConductorType> = 1
+  <EndConductor>
+[NumPoints] = 24
+0	20	0	0	0
+0	0	0	0	0
+21	20	0	0	0
+21	0	0	0	0
+3.5	20	0	0	0
+3.5	14.75	0	0	0
+0	13.75	0	0	0
+21	9	0	0	0
+20	9	0	0	0
+19	9	0	0	0
+18.25	9	0	0	0
+17.5	9	0	0	0
+16.75	8.5	0	0	0
+16	8.25	0	0	0
+15.5	7.75	0	0	0
+15	7	0	0	0
+14.25	6	0	0	0
+13.5	5.5	0	0	0
+13	4.5	0	0	0
+13	3.75	0	0	0
+12.75	3	0	0	0
+12.5	2	0	0	0
+12.5	1	0	0	0
+12.5	0	0	0	0
+[NumSegments] = 26
+0	4	-1	1	0	0	0
+4	2	-1	1	0	0	0
+4	5	-1	0	0	0	2
+0	6	-1	1	0	0	0
+6	5	-1	0	0	0	2
+6	1	-1	0	0	0	0
+2	7	-1	0	0	0	0
+1	23	-1	0	0	0	0
+7	3	-1	0	0	0	0
+23	3	-1	0	0	0	0
+23	22	-1	0	0	0	1
+22	21	-1	0	0	0	1
+21	20	-1	0	0	0	1
+20	19	-1	0	0	0	1
+19	18	-1	0	0	0	1
+18	17	-1	0	0	0	1
+17	16	-1	0	0	0	1
+16	15	-1	0	0	0	1
+15	14	-1	0	0	0	1
+14	13	-1	0	0	0	1
+13	12	-1	0	0	0	1
+12	11	-1	0	0	0	1
+11	10	-1	0	0	0	1
+10	9	-1	0	0	0	1
+9	8	-1	0	0	0	1
+8	7	-1	0	0	0	1
+[NumArcSegments] = 0
+[NumHoles] = 1
+8	23	0
+[NumBlockLabels] = 3
+1.5	17	1	-1	0	0
+10	10.5	1	-1	0	0
+18	5	1	-1	0	0
