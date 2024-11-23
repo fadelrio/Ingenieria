@@ -1,4 +1,4 @@
-* C:\users\fadelrio\Documents\TP1 ADC\Draft2.asc
+* C:\users\fadelrio\Documents\Ingeniería\AdC\TP1 ADC\Draft2.asc
 XU1 3 4 +10 -10 V0 TL081
 V1 +10 0 10
 V2 0 -10 10
@@ -8,8 +8,10 @@ R3 4 V0 2490
 R4 0 4 1k
 C1 V0 2 100n
 C2 0 3 100n
-V3 1 0 SINE(0 1) AC 1
+V4 1 0 PULSE(0 6.66m 49.9m 1p 0 49.9m 49.9m 1)
+V5 1 0 PULSE(0 3.33m 99.8m 1p 0 49.9m 49.9m 1)
+V6 1 0 PULSE(0 6.66m 149.7m 1p 0 49.9m 49.9m 1)
 .inc TL084.txt
-.ac lin 1000000 16 23.8k
+.tran 0 300m 0 1000n uic
 .backanno
 .end
