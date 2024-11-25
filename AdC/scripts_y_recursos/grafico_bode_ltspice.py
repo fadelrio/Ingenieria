@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 
 # Leer el archivo txt
 # Asegúrate de reemplazar 'archivo.txt' con la ruta de tu archivo
-archivo1 = 'bode_ltspice_set2_formateado.txt'
+archivo1 = 'bode_ltspice_set3_formateado.txt'
 datos1 = np.loadtxt(archivo1, delimiter=None)  # Cambiar delimiter si es necesario (e.g., ',')
 
-archivo2 = 'bode_teorico_set2.txt'
+archivo2 = 'bode_teorico_set3.txt'
 datos2 = np.loadtxt(archivo2, delimiter=None)  # Cambiar delimiter si es necesario (e.g., ',')
 
 # Asignar columnas a variables

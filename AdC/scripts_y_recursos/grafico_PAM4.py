@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Cargar datos desde el archivo
-archivo = "PAM4_set2.txt"
+archivo = "PAM4_set3.txt"
 datos = np.loadtxt(archivo, skiprows = 1)
 
 # Separar columnas en x e y

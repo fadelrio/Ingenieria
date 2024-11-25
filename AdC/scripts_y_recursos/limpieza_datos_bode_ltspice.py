@@ -1,6 +1,6 @@
 # Nombre del archivo de entrada y salida
-archivo_entrada = "bode_ltspice_set2.txt"
-archivo_salida = "bode_ltspice_set2_formateado.txt"
+archivo_entrada = "bode_ltspice_set3.txt"
+archivo_salida = "bode_ltspice_set3_formateado.txt"
 
 # Abrir los archivos con la codificación adecuada
 with open(archivo_entrada, "r", encoding="latin1") as entrada, open(archivo_salida, "w", encoding="utf-8") as salida:
