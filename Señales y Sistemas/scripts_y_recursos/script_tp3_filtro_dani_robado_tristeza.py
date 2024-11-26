@@ -4,15 +4,20 @@ import matplotlib.pyplot as plt
 import scipy.fftpack as fourier
 from scipy.signal import spectrogram
 
+
+fragmento = 1 #fragmento del audio, 0 para el que va de 0s a 1.5s y 1 para el que va de 1.5s a 3s
+
 # Importamos los archivos
 audio_notas = "notas_musicales.wav"
 
 # Cargamos la data en la matriz, con su frecuencia de muestreo Fs
 Fs1, data_notas = waves.read(audio_notas)
 
+
 # Convertimos el audio de estéreo a mono
 if len(data_notas.shape) == 2:  # Verifica si hay dos canales (estéreo)
     data_notas = data_notas.mean(axis=1).astype(data_notas.dtype)
+
 
 L_m = len(data_notas)
 
@@ -21,17 +26,29 @@ Ts1 = 1 / Fs1  # T sample 1
 t_m = Ts1 * np.arange(0, L_m)
 
 # Transformada de Fourier (TTF)
-Tf_m = fourier.fft(data_notas)
+Tf_m = np.fft.fft(data_notas)
 M_Tf_m = abs(Tf_m[:L_m // 2])
 F_m = (Fs1 / L_m) * np.arange(0, L_m // 2)
 
 # Extraemos el audio
-inicio_muestra = 1.5
-fin_muestra = 3
-samples_to_plot_start = int(inicio_muestra * Fs1)
-samples_to_plot_stop = int(fin_muestra * Fs1)
-data_notas_primer_nota = data_notas[samples_to_plot_start:samples_to_plot_stop]
-t_m_primer_nota = t_m[samples_to_plot_start:samples_to_plot_stop]
+
+
+
+if fragmento == 0:
+    inicio_muestra = 0
+    fin_muestra = 1.5
+    samples_to_plot_start = int(inicio_muestra * Fs1)
+    samples_to_plot_stop = int(fin_muestra * Fs1)
+    data_notas_primer_nota = data_notas[samples_to_plot_start:samples_to_plot_stop]
+    t_m_primer_nota = t_m[samples_to_plot_start:samples_to_plot_stop]
+elif fragmento == 1:
+    inicio_muestra = 1.5
+    fin_muestra = 3
+    samples_to_plot_start = int(inicio_muestra * Fs1)
+    samples_to_plot_stop = int(fin_muestra * Fs1)
+    data_notas_primer_nota = data_notas[samples_to_plot_start:samples_to_plot_stop]
+    t_m_primer_nota = t_m[samples_to_plot_start:samples_to_plot_stop]
+
 
 # Graficamos 
 fig3 = plt.figure()
@@ -42,7 +59,7 @@ plt.title('notas_musicales.wav gráfico temporal')
 fig3.savefig('Audio1_11-15')
 
 # Transformada de Fourier (TTF) 
-Tf_m_primer_nota = fourier.fft(data_notas_primer_nota)
+Tf_m_primer_nota = np.fft.fft(data_notas_primer_nota)
 L_primer_nota = len(data_notas_primer_nota)
 M_Tf_m_primer_nota = abs(Tf_m_primer_nota[:L_primer_nota // 2])
 F_m_primer_nota = (Fs1 / L_primer_nota) * np.arange(0, L_primer_nota // 2)
@@ -57,15 +74,18 @@ fig5.savefig('Transf1_11-15')
 
 
 # Función para graficar el espectrograma
-def graficar_espectrograma(signal, title, fs):
+def graficar_espectrograma(signal, title, fs, fragmento_usado):
     f, t_spec, Sxx = spectrogram(signal, fs=fs, window='hann', nperseg=8192, noverlap=2048)
-    plt.pcolormesh(t_spec, f, 10 * np.log10(Sxx), shading='auto')
+    plt.pcolormesh(t_spec, f, 10 * np.log10(Sxx), shading='gouraud')
     plt.title(title)
     plt.ylim(0, 5000)
     plt.ylabel('Frecuencia [Hz]')
     plt.xlabel('Tiempo [s]')
     plt.colorbar(label='Intensidad [dB]')
-    plt.ylim([0,1000])
+    if fragmento_usado == 0:
+        plt.ylim([0,2000])
+    elif fragmento_usado == 1:
+        plt.ylim([0,1000])
 
 # Filtro modular periódico
 def filtro_modular_periodico(f0, ancho, freqs):
@@ -78,7 +98,10 @@ def filtro_modular_periodico(f0, ancho, freqs):
     return filtro
 
 # Parámetros del filtro
-f0_list = [69, 97]  # Lista de frecuencias base [Hz]
+if fragmento == 0:
+    f0_list = [182, 230]  # Lista de frecuencias base [Hz]
+elif fragmento == 1:
+    f0_list = [70, 98]
 ancho = 15  # Ancho de cada ventana [Hz] (± la mitad)
 num_armonicos = 10  # Número de armónicos a considerar
 Fs1 = 44100  # Frecuencia de muestreo, ajusta según tu archivo
@@ -127,13 +150,17 @@ for f0 in f0_list:
     plt.xlabel('Frecuencia [Hz]')
     plt.ylabel('Amplitud TTF')
     plt.title(f'Transformada de Fourier - Señal filtrada (f0 = {f0} Hz)')
-    plt.ylim([0,1000])
+    if fragmento == 0:
+        plt.xlim([0,2000])
+    elif fragmento == 1:
+        plt.xlim([0,1000])
+
 
     # Guardar la señal filtrada en un nuevo archivo
-    output_path = "notas_musicales_filtradas{f0}.wav"
+    output_path = f"notas_musicales_filtradas{f0}.wav"
     waves.write(output_path, Fs1, data_notas_filtrada.astype(np.int16))
 
     # Graficar el espectrograma de la señal filtrada
     plt.figure(figsize=(10, 8))
-    graficar_espectrograma(data_notas_filtrada, f'Espectrograma de la señal filtrada (f0 = {f0} Hz)', Fs1)
+    graficar_espectrograma(data_notas_filtrada, f'Espectrograma de la señal filtrada (f0 = {f0} Hz)', Fs1, fragmento)
 plt.show()
