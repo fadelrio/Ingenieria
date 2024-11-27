@@ -55,7 +55,7 @@ fig3 = plt.figure()
 plt.plot(t_m_primer_nota, data_notas_primer_nota, linewidth=0.5)
 plt.xlabel('Tiempo [s]')
 plt.ylabel('Amplitud de audio')
-plt.title('notas_musicales.wav gráfico temporal')
+plt.title('Gráfico temporal')
 fig3.savefig('Audio1_11-15')
 
 # Transformada de Fourier (TTF) 
@@ -139,7 +139,7 @@ for f0 in f0_list:
     plt.plot(data_notas_filtrada[:L_primer_nota], linewidth=0.5, color='red')
     plt.xlabel('Tiempo [s]')
     plt.ylabel('Amplitud')
-    plt.title(f'Señal filtrada - Dominio del tiempo (f0 = {f0} Hz)')
+    plt.title(f'Señal filtrada - Dominio del tiempo ($f_0$ = {f0} Hz)')
 
     # Graficar el espectro de la señal filtrada
     M_Tf_m_filtrada = np.abs(Tf_m_filtrada[:L_primer_nota // 2])
@@ -149,7 +149,7 @@ for f0 in f0_list:
     plt.plot(F_m_primer_nota, M_Tf_m_filtrada, linewidth=0.5, color='purple')
     plt.xlabel('Frecuencia [Hz]')
     plt.ylabel('Amplitud TTF')
-    plt.title(f'Transformada de Fourier - Señal filtrada (f0 = {f0} Hz)')
+    plt.title(f'Transformada de Fourier - Señal filtrada ($f_0$ = {f0} Hz)')
     if fragmento == 0:
         plt.xlim([0,2000])
     elif fragmento == 1:
@@ -162,5 +162,5 @@ for f0 in f0_list:
 
     # Graficar el espectrograma de la señal filtrada
     plt.figure(figsize=(10, 8))
-    graficar_espectrograma(data_notas_filtrada, f'Espectrograma de la señal filtrada (f0 = {f0} Hz)', Fs1, fragmento)
+    graficar_espectrograma(data_notas_filtrada, f'Espectrograma de la señal filtrada ($f_0$ = {f0} Hz)', Fs1, fragmento)
 plt.show()

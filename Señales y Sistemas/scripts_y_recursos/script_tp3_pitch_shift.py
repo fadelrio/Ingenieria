@@ -51,7 +51,7 @@ def procesar_y_graficar(fragmento, nota):
     ax1.legend()
 
     # Graficar la segunda función en el segundo subgráfico (abajo)
-    ax2.plot(F_senal_shifteada, M_Tf_senal_shifteada, 'b-', label='Señal shifteada')
+    ax2.plot(F_senal_shifteada, M_Tf_senal_shifteada, 'b-', label='Señal desplazada')
     if fragmento == 0:
         ax2.set_xlim([0, 2000])
     elif fragmento == 1:

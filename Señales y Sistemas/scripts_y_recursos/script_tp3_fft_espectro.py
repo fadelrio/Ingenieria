@@ -4,7 +4,7 @@ import soundfile as sf
 from scipy.signal import spectrogram, butter, filtfilt
 
 # 1. Cargar el archivo de audio
-audio_file = "nota_musical_1_filtrada.wav"  # Cambiar por el nombre del archivo
+audio_file = "nota_musical_2.wav"  # Cambiar por el nombre del archivo
 signal, sample_rate = sf.read(audio_file)
 
 
@@ -27,7 +27,6 @@ plt.xlabel("Frecuencia [Hz]")
 plt.ylabel("Amplitud")
 plt.grid()
 plt.tight_layout()
-plt.show()
 
 
 #cuando se cambian no se puede multiplicar pq te los da en float y se rompe, cambiar con el numero directo
@@ -48,11 +47,11 @@ frequencies, times, Sxx = spectrogram(signal, fs=sample_rate, window='hann', npe
 
 # Graficar el espectrograma
 fig4= plt.figure()
-plt.pcolormesh(times, frequencies, 10 * np.log10(Sxx), shading='gouraud')
+plt.pcolormesh(times, frequencies, 10 * np.log10(Sxx), shading='gouraud', vmin = -120,vmax = -20)
 plt.colorbar(label='Intensidad [dB]')
 plt.title("Espectrograma del primer fragmento")
 plt.xlabel("Tiempo [s]")
 plt.ylabel("Frecuencia [Hz]")
-plt.ylim([0, 3000])  # Limitar a el eje d frec para mejor visualización
+plt.ylim([0, 900])  # Limitar a el eje d frec para mejor visualización
 plt.show()
 
