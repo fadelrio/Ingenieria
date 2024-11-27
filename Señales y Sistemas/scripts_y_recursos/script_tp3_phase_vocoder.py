@@ -116,5 +116,5 @@ plt.show()
 
 # Opcional: Guardar las señales modificadas en archivos
 # Guardar las señales procesadas
-# sf.write("InASentimentalMood_Acelerado.wav", signal_acelerado, sr)
-# sf.write("InASentimentalMood_Desacelerado.wav", signal_desacelerado, sr)
+sf.write("InASentimentalMood_Acelerado.wav", signal_acelerado, sr)
+sf.write("InASentimentalMood_Desacelerado.wav", signal_desacelerado, sr)

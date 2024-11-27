@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import librosa as lib
 from scipy.io import wavfile as waves
 from scipy.signal import spectrogram
+import soundfile as sf
 
 
 audio_iasm = "InASentimentalMood.wav"
@@ -57,5 +58,7 @@ plt.ylabel('Frecuencia [Hz]')
 plt.xlabel('Tiempo [s]')
 plt.colorbar(label='Intensidad [dB]')
 
+sf.write("InASentimentalMood_armonicos.wav", data_iasm_harmonic, Fs)
+sf.write("InASentimentalMood_percusivos.wav", data_iasm_percussive, Fs)
 
 plt.show()
