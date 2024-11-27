@@ -95,7 +95,7 @@ frequencies, times, Sxx = spectrogram(original_signal, fs=original_rate, window=
 fig4= plt.figure()
 plt.pcolormesh(times, frequencies, 10 * np.log10(Sxx), shading='gouraud', vmin = -20, vmax = 60)
 plt.colorbar(label='Intensidad [dB]')
-plt.title("Espectrograma de InASentimentalMood")
+plt.title("Espectrograma de la señal")
 plt.xlabel("Tiempo [s]")
 plt.ylabel("Frecuencia [Hz]")
 plt.ylim([0, 3000])  # Limitar a el eje d frec para mejor visualización
@@ -109,7 +109,7 @@ frequencies, times, Sxx = spectrogram(faster_signal, fs=faster_rate, window= 'ha
 fig5= plt.figure()
 plt.pcolormesh(times, frequencies, 10 * np.log10(Sxx), shading='gouraud',vmin = -20, vmax = 60)
 plt.colorbar(label='Intensidad [dB]')
-plt.title("Espectrograma de la señal InASentimentalMood decimada en un factor de 1.25")
+plt.title("Espectrograma de la señal decimada en un factor de 1.25")
 plt.xlabel("Tiempo [s]")
 plt.ylabel("Frecuencia [Hz]")
 plt.ylim([0, 3000])  # Limitar a el eje d frec para mejor visualización
