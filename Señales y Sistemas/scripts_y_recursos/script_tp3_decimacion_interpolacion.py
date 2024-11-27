@@ -79,52 +79,54 @@ output_path2 = "senal_ralentizada.wav"
 wavfile.write(output_path2, faster_rate, slower_signal.astype(np.int16))
 
 
-# nperseg=2048
-# noverlap=1024
-# nfft=4096
-#
-# # 5. Realizar el espectrograma de la señal completa
-# frequencies, times, Sxx = spectrogram(original_signal, fs=original_rate, window='hann', nperseg=nperseg, noverlap=noverlap, nfft=nfft)
-#
-# #nperseg: resolucion en tiempo y recuencia. Achicarlo me sube la resolucion en tiempo porque achica el tamaño de las ventanas No puede ser mas grande que la señal
-# #noverlap: cuanto (en general en porcentaje) se solapan las ventanas. Suaviza la señal
-# #nfft: resolucion en frecuencia (debe ser mas grande que nperseg para que surta efecto).
-# #zero padding: nfft - nperseg. Cuantos 0s agregue en frecuenca para subirle la resolucion, no es un parametro pero sirve para saber que estas haciendo con los valores
-#
-# # Graficar el espectrograma
-# fig4= plt.figure()
-# plt.pcolormesh(times, frequencies, 10 * np.log10(Sxx), shading='gouraud', vmin = -20, vmax = 60)
-# plt.colorbar(label='Intensidad [dB]')
-# plt.title("Espectrograma de InASentimentalMood")
-# plt.xlabel("Tiempo [s]")
-# plt.ylabel("Frecuencia [Hz]")
-# plt.ylim([0, 3000])  # Limitar a el eje d frec para mejor visualización
-#
-# #Realizar el espectograma de la señal acelerada (decimada) en un factor de 1.25
-# frequencies, times, Sxx = spectrogram(faster_signal, fs=faster_rate, window= 'hann', nperseg=nperseg, noverlap=noverlap, nfft=nfft)
-#
-#
-# # Graficar el espectrograma de la señal decimada
-# fig5= plt.figure()
-# plt.pcolormesh(times, frequencies, 10 * np.log10(Sxx), shading='gouraud',vmin = -20, vmax = 60)
-# plt.colorbar(label='Intensidad [dB]')
-# plt.title("Espectrograma de la señal InASentimentalMood decimada en un factor de 1.25")
-# plt.xlabel("Tiempo [s]")
-# plt.ylabel("Frecuencia [Hz]")
-# plt.ylim([0, 3000])  # Limitar a el eje d frec para mejor visualización
-#
-#
-# #Realizar el espectograma de la señal ralentizada (interpolada) en un factor de 0.75
-# frequencies, times, Sxx = spectrogram(slower_signal, fs=slower_rate, window= 'hann', nperseg=nperseg, noverlap=noverlap, nfft=nfft)
-#
-#
-# # Graficar el espectrograma de la señal interpolada
-# fig5= plt.figure()
-# plt.pcolormesh(times, frequencies, 10 * np.log10(Sxx), shading='gouraud',vmin = -20, vmax = 60)
-# plt.colorbar(label='Intensidad [dB]')
-# plt.title("Espectrograma de la señal interpolada en un factor de 0.75")
-# plt.xlabel("Tiempo [s]")
-# plt.ylabel("Frecuencia [Hz]")
-# plt.ylim([0, 3000])  # Limitar a el eje d frec para mejor visualización
-# plt.show()
-#
+nperseg=2048
+noverlap=1024
+nfft=4096
+
+# 5. Realizar el espectrograma de la señal completa
+frequencies, times, Sxx = spectrogram(original_signal, fs=original_rate, window='hann', nperseg=nperseg, noverlap=noverlap, nfft=nfft)
+
+#nperseg: resolucion en tiempo y recuencia. Achicarlo me sube la resolucion en tiempo porque achica el tamaño de las ventanas No puede ser mas grande que la señal
+#noverlap: cuanto (en general en porcentaje) se solapan las ventanas. Suaviza la señal
+#nfft: resolucion en frecuencia (debe ser mas grande que nperseg para que surta efecto).
+#zero padding: nfft - nperseg. Cuantos 0s agregue en frecuenca para subirle la resolucion, no es un parametro pero sirve para saber que estas haciendo con los valores
+
+# Graficar el espectrograma
+fig4= plt.figure()
+plt.pcolormesh(times, frequencies, 10 * np.log10(Sxx), shading='gouraud', vmin = -20, vmax = 60)
+plt.colorbar(label='Intensidad [dB]')
+plt.title("Espectrograma de InASentimentalMood")
+plt.xlabel("Tiempo [s]")
+plt.ylabel("Frecuencia [Hz]")
+plt.ylim([0, 3000])  # Limitar a el eje d frec para mejor visualización
+plt.show()
+
+#Realizar el espectograma de la señal acelerada (decimada) en un factor de 1.25
+frequencies, times, Sxx = spectrogram(faster_signal, fs=faster_rate, window= 'hann', nperseg=nperseg, noverlap=noverlap, nfft=nfft)
+
+
+# Graficar el espectrograma de la señal decimada
+fig5= plt.figure()
+plt.pcolormesh(times, frequencies, 10 * np.log10(Sxx), shading='gouraud',vmin = -20, vmax = 60)
+plt.colorbar(label='Intensidad [dB]')
+plt.title("Espectrograma de la señal InASentimentalMood decimada en un factor de 1.25")
+plt.xlabel("Tiempo [s]")
+plt.ylabel("Frecuencia [Hz]")
+plt.ylim([0, 3000])  # Limitar a el eje d frec para mejor visualización
+plt.show()
+
+
+#Realizar el espectograma de la señal ralentizada (interpolada) en un factor de 0.75
+frequencies, times, Sxx = spectrogram(slower_signal, fs=slower_rate, window= 'hann', nperseg=nperseg, noverlap=noverlap, nfft=nfft)
+
+
+# Graficar el espectrograma de la señal interpolada
+fig5= plt.figure()
+plt.pcolormesh(times, frequencies, 10 * np.log10(Sxx), shading='gouraud',vmin = -20, vmax = 60)
+plt.colorbar(label='Intensidad [dB]')
+plt.title("Espectrograma de la señal interpolada en un factor de 0.75")
+plt.xlabel("Tiempo [s]")
+plt.ylabel("Frecuencia [Hz]")
+plt.ylim([0, 3000])  # Limitar a el eje d frec para mejor visualización
+plt.show()
+
