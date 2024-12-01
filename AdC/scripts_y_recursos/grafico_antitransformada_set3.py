@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # Definimos la función h(t)
 def h(t):
-    return 2862.92 * (-np.exp(-10605.2 * t) + np.exp(-761.4 * t))
+    return 2,34 * (np.exp(-(454.55 - 2510.72j) * t) + np.exp(-(454.55 + 2510.72j) * t))
 
 # Rango de t (ajústalo según lo que desees analizar)
 t = np.linspace(0, 0.01, 1000)  # Por ejemplo, de 0 a 0.01 segundos
