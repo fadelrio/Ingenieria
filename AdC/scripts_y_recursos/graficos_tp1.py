@@ -2,14 +2,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-modo_de_operacion = 1 # 0 para usar la función, 1 para usar una archivo .txt separado por tabs
+modo_de_operacion = 0 # 0 para usar la función, 1 para usar una archivo .txt separado por tabs
 
 archivo_csv = 'primer_set.txt'
 
 datos = pd.read_csv(archivo_csv, delimiter='\t')
 
 def funcion(x):
-    return np.exp(-2500*x)*(-0.035*np.cos(400*np.pi*x) - 0.0696*np.sin(400*np.pi*x)) + 0.035
+    return -0.84*np.exp(-454.55*x)*(np.sin(2510.72*x))
 
 if (modo_de_operacion == 0):
     x = np.linspace(0, 0.02, 1000)  # Rango para ver el comportamiento de la función
@@ -57,7 +57,7 @@ plt.annotate(f'$t_r = {diferencia:.5f}$ s',
              bbox=dict(boxstyle='round', edgecolor='lightgray', facecolor='white'))
 
 # Ajustar la cuadrícula en el eje y
-plt.yticks(np.arange(0, 0.056, 0.005))  # Marcas en el eje y con separación de 0.005
+#plt.yticks(np.arange(0, 0.056, 0.005))  # Marcas en el eje y con separación de 0.005
 
 # Mostrar leyenda
 plt.legend()
