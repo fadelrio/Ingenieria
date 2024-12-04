@@ -92,10 +92,11 @@ Fs, data_iasm = waves.read(audio_iasm)
 Ts = 1 / Fs  # T sample 1
 time_iasm = Ts * np.arange(0, len(data_iasm))
 
+factor = 0.75
 
-data_iasm_upsampleada = resample(data_iasm,Fs,len(data_iasm),1.25)
+data_iasm_upsampleada = resample(data_iasm,Fs,len(data_iasm), factor)
 
-plot_signals(Fs,data_iasm, Fs, data_iasm_upsampleada, 1.25)
+plot_signals(Fs,data_iasm, Fs, data_iasm_upsampleada, factor)
 
 Tf_senal_upsampleada = np.fft.fft(data_iasm_upsampleada, norm="ortho")
 L_primer_nota = len(data_iasm_upsampleada)
