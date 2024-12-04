@@ -100,7 +100,6 @@ def butter_lowpass_filter(data, cutoff, fs, order=4):
     - cutoff: Frecuencia de corte del filtro (en Hz).
     - fs: Frecuencia de muestreo de la señal (en Hz).
     - order: Orden del filtro Butterworth.
-    
     Retorna:
     - Señal filtrada sin desfase.
     """
