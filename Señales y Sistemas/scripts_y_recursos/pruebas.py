@@ -4,30 +4,33 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 sample_rate = 100
-tiempo = np.arange(-5, 5, 1/sample_rate)
+tiempo = np.arange(0, 1, 1/sample_rate)
 #
-w = 2*np.pi
-#
-senal = np.cos(w*tiempo)*np.cos(w*tiempo)*np.cos(2*w*tiempo)*np.cos(2*w*tiempo)
-#
-# long_escalon = int(len(tiempo)/3)
-# long_padding = int(len(tiempo)/3)
-#
-# senal = np.concatenate(np.zeros(long_padding),np.ones(long_escalon),np.zeros(long_padding))
-#
-fft = np.fft.fft(senal)
-f_fft = np.fft.fftfreq(len(senal), 1/sample_rate)
-#
-frecuencias = f_fft[:len(senal) // 2]
-fft_signal = np.abs(fft[:len(senal) // 2])
-#
-plt.figure()
-plt.plot(frecuencias, fft_signal)
+f_1 = 30
 
+alpha = [0, 0.5, 1, 1.5]
 
-plt.figure()
+n_f = 1000
 
-plt.plot(tiempo, senal)
+for alpha in alpha:
+
+    f_2 = f_1 + alpha / ((1/sample_rate)*n_f)
+
+    senal = np.cos(2*np.pi*f_1*tiempo) + np.cos(2*np.pi*f_2*tiempo)
+
+    fft = np.fft.fft(senal, n_f)
+    f_fft = np.fft.fftfreq(len(senal), 1/n_f)
+
+    frecuencias = f_fft[:len(senal) // 2]
+    fft_signal = np.abs(fft[:len(senal) // 2])
+
+    plt.figure()
+    plt.plot(frecuencias, fft_signal, "o")
+    plt.title(f"$f_1$ = {f_1:.2f} Hz $f_2$ = {f_2:.2f} Hz")
+
+    #plt.figure()
+
+    #plt.plot(tiempo, senal, "o")
 
 plt.show()
 
@@ -49,8 +52,5 @@ plt.show()
 #plt.plot(frecuencias, fft_signal)
 
 
-plt.figure()
-
-plt.plot(tiempo, senal)
 
 plt.show()
