@@ -4,3 +4,6 @@
 [submodule "Embebidos/stm32/tdse_workspace_tp0/tdse-tp0_04-hw_sw_test"]
 	path = Embebidos/stm32/tdse_workspace_tp0/tdse-tp0_04-hw_sw_test
 	url = https://github.com/fadelrio/-tdse-tp0_04-hw_sw_test.git
+[submodule "Embebidos/stm32/tdse_workspace_tp0/tdse-tp0_05-hw_sw_test"]
+	path = Embebidos/stm32/tdse_workspace_tp0/tdse-tp0_05-hw_sw_test
+	url = git@github.com:fadelrio/tdse-tp0_05-hw_sw_test.git
