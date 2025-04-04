@@ -7,3 +7,15 @@
 [submodule "Embebidos/stm32/tdse_workspace_tp0/tdse-tp0_05-hw_sw_test"]
 	path = Embebidos/stm32/tdse_workspace_tp0/tdse-tp0_05-hw_sw_test
 	url = git@github.com:fadelrio/tdse-tp0_05-hw_sw_test.git
+[submodule "Embebidos/statecharts/my_first_statechart"]
+	path = Embebidos/statecharts/my_first_statechart
+	url = git@github.com:fadelrio/tdse-tp1_01-my_first_statechart.git
+[submodule "Embebidos/statecharts/sensor_statechart"]
+	path = Embebidos/statecharts/sensor_statechart
+	url = git@github.com:fadelrio/tdse-tp1_02-sensor_statechart.git
+[submodule "Embebidos/statecharts/sensor_system_statechart"]
+	path = Embebidos/statecharts/sensor_system_statechart
+	url = git@github.com:fadelrio/tdse-tp1_03-sensor_system_statechart.git
+[submodule "Embebidos/statecharts/sensor_system_actuator_statechart"]
+	path = Embebidos/statecharts/sensor_system_actuator_statechart
+	url = git@github.com:fadelrio/tdse-tp1_04-sensor_system_actuator_statechart.git
