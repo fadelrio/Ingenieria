@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;tp2_01-model_integration&apos;" deleteContents="false" description="Delete resource &apos;tp2_01-model_integration&apos;" element1="/tp2_01-model_integration" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1744399203315"/>
+</session>
