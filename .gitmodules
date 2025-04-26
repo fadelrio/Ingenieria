@@ -22,3 +22,6 @@
 [submodule "Embebidos/stm32/tdse_workspace_tp2/tdse-tp2_01-model_integration"]
 	path = Embebidos/stm32/tdse_workspace_tp2/tdse-tp2_01-model_integration
 	url = git@github.com:fadelrio/tdse-tp2_01-model_integration.git
+[submodule "Embebidos/stm32/tdse_workspace_tp2/tdse-tp2_02-model_integration"]
+	path = Embebidos/stm32/tdse_workspace_tp2/tdse-tp2_02-model_integration
+	url = git@github.com:fadelrio/tdse-tp2_02-model_integration.git

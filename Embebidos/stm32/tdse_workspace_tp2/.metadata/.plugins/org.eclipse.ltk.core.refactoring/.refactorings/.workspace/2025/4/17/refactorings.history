@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;tdse-tp2_02-model_integration2&apos; to &apos;tdse-tp2_02-model_integration&apos;" description="Rename resource &apos;tdse-tp2_02-model_integration2&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/tdse-tp2_02-model_integration2" name="tdse-tp2_02-model_integration" stamp="1745609999547" updateReferences="true"/>
+</session>
