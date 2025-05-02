@@ -1,7 +1,7 @@
 import socket
 
 HOST = '0.0.0.0'
-PORT = 5001
+PORT = 631
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
     server.bind((HOST, PORT))
