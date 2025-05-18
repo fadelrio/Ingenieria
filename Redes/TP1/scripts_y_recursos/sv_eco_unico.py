@@ -5,7 +5,7 @@ PORT = 5001
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
     server.bind((HOST, PORT))
-    server.listen(1)  # Permite 1 conexión pendiente
+    server.listen(2)  # Permite 1 conexión pendiente
     print(f"[ECO] Servidor escuchando en puerto {PORT}")
 
     while True:
