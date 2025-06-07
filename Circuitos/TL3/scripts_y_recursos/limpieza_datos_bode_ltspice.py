@@ -1,6 +1,6 @@
 # Nombre del archivo de entrada y salida
-archivo_entrada = "bode_simulado.txt"
-archivo_salida = "bode_simulado_formateado.txt"
+archivo_entrada = "valores_simulados_frec_real.txt"
+archivo_salida = "valores_simulados_frec_real_formateado.txt"
 
 # Abrir los archivos con la codificación adecuada
 with open(archivo_entrada, "r", encoding="latin1") as entrada, open(archivo_salida, "w", encoding="utf-8") as salida:
