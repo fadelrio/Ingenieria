@@ -1,6 +1,21 @@
 clear all; clc 
 close all; 
 
+T_s = 20e-3;
+
+tau = 40e-3;
+
+fase_digit = 5;
+
+wgc = (4/T_s)*tand(5/2);
+
+fase_pap2 = 2*atand(wgc/(2/tau));
+
+fase_pap1 = 30 - fase_digit - fase_pap2;
+
+p = wgc*tand(fase_pap1/2);
+
+
 s = tf('s');
 
 optionss=bodeoptions;
@@ -10,27 +25,23 @@ optionss.PhaseMatchingValue=-170;
 optionss.PhaseMatchingFreq=.1;
 optionss.Grid='on';
 
-%Para el T_s: frecuencia: 28.9 margen: 22.7
-
-T_s = 0.0278;
-
-Pade = zpk([4/T_s],[-4/T_s],-1);
-
-P = zpk([],[-80, 4i, -4i],80);
-Pmp = P;
-Pap = zpk(0,0,1);
+P = zpk([50],[-50 p],-1);
+Pmp = zpk([],[-p],1);
+Pap1 = zpk([-p],[p],1);
+Pap2 = zpk([50],[-50],-1);
+Pap = Pap1*Pap2;
 
 %{
 Pap1 = zpk(0,0,0);
 Pap2 = zpk(0,0,0);
 Pap = Pap1*Pap2;
-
+%}
 figure();
 bode(Pap, Pap1, Pap2, optionss, {0.1,100000});
 set(findall(gcf,'type','line'),'linewidth',2);
 legend
 
-%}
+
 
 figure();
 bode(P, Pmp, Pap, optionss, {0.1,100000});
@@ -39,7 +50,7 @@ legend
 
 %%
 
-C = db2mag(111)*zpk([-80,-1,-1],[0, -1000, -1000],1);
+C = db2mag(18.8)*inv(Pmp)*zpk([],[0],1);
 
 Lmp = minreal(C*Pmp);
 
@@ -61,21 +72,40 @@ bode(Lmp, L, optionss, {0.1,100000});
 set(findall(gcf,'type','line'),'linewidth',2);
 legend
 
-L_digit = L*Pade;
-
-figure();
-optionss.PhaseMatchingValue=-180;
-optionss.PhaseMatchingFreq=20;
-bode(L_digit, L, optionss, {0.1,100000});
-set(findall(gcf,'type','line'),'linewidth',2);
-legend
-
 figure();
 rlocus(L);
 set(findall(gcf,'type','line'),'linewidth',2);
 legend
 
+figure();
+optionss.PhaseMatchingValue=-180;
+optionss.PhaseMatchingFreq=20;
+bode(S, optionss, {0.1,100000});
+set(findall(gcf,'type','line'),'linewidth',2);
+legend
 
+%margen de estabilidad: 0.7516;
+
+figure();
+optionss.PhaseMatchingValue=-180;
+optionss.PhaseMatchingFreq=20;
+bode(T, optionss, {0.1,100000});
+set(findall(gcf,'type','line'),'linewidth',2);
+legend
+
+figure();
+optionss.PhaseMatchingValue=-180;
+optionss.PhaseMatchingFreq=20;
+bode(PS, optionss, {0.1,100000});
+set(findall(gcf,'type','line'),'linewidth',2);
+legend
+
+figure();
+optionss.PhaseMatchingValue=-180;
+optionss.PhaseMatchingFreq=20;
+bode(CS, optionss, {0.1,100000});
+set(findall(gcf,'type','line'),'linewidth',2);
+legend
 
 %%
 
@@ -93,7 +123,7 @@ step(T_PS); % Salida con referencia de escalón + perturbacion de entrada de esc
 legend
 
 figure();
-T_CS = -T + CS;
+T_CS = S + CS;
 step(T_CS); %Acción de control con referencia de escalon + pertubacion de entrada escalón
 legend
 

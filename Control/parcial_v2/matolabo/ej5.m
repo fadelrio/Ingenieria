@@ -10,10 +10,20 @@ optionss.PhaseMatchingValue=-170;
 optionss.PhaseMatchingFreq=.1;
 optionss.Grid='on';
 
-Pade = zpk((1-s/4)/(1+s/4));
-
+Pade = zpk([4],[-4],-1);
+%{
+Se me enojaron por usar esta forma, voy a ver si habia diferencia con la
+forma piola.
+*5 minutos despues* Al final era lo mismo, el controlador quedó igual
 P = zpk(2/((s/5 +1)*(4*s+1)))*Pade;
 Pmp = zpk(2/((s/5 +1)*(4*s+1)));
+Pap = Pade;
+%}
+
+P = zpk([4],[-5,-4,-4],-2.5); %ya tiene el pade multiplicando
+
+Pmp = zpk([], [-5,-4],2.5);
+
 Pap = Pade;
 
 %{
@@ -76,7 +86,7 @@ step(T_PS); % Salida con referencia de escalon + perturbacion de entrada de esca
 legend
 
 figure();
-T_CS = -T + CS;
+T_CS = S + CS;
 step(T_CS); % Accion de control con referencia de escalon + perturbacion de entrada de escalon
 legend
 

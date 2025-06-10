@@ -1,3 +1,16 @@
+
+
+A = [-1/64 1/16; 0 -4];
+
+B = [0; 4];
+
+C = [-3/64 0];
+
+D = 0;
+
+[Num,Den] = ss2tf(A,B,C,D);
+
+
 clear all; clc 
 close all; 
 
@@ -10,13 +23,13 @@ optionss.PhaseMatchingValue=-170;
 optionss.PhaseMatchingFreq=.1;
 optionss.Grid='on';
 
-T_s = 100;
-
-Digit = zpk([4/T_s],[-4/T_s],-1);
-
-P = zpk([],[0,0,-80],40);
-Pmp = zpk([],[0,0,-80],40);
+P = zpk([],[-4, -0.0156],-0.0117);
+Pmp = zpk([],[-4, -0.0156],-0.0117);
 Pap = zpk(0,0,1);
+
+T_s = 0.1036;
+
+Pade = zpk([4/T_s],[-4/T_s],-1);
 
 %{
 Pap1 = zpk(0,0,0);
@@ -31,15 +44,20 @@ legend
 %}
 
 figure();
-bode(P, Pmp, Pap, optionss, {0.1,100000});
+bode(P, Pmp, Pap, optionss, {0.001,100});
 set(findall(gcf,'type','line'),'linewidth',2);
 legend
 
-C = db2mag(0)*zpk([-80 -1 -1],[0 1000 1000],1);
+%%
+close all;
+
+C = db2mag(18.1)*zpk([-0.0156],[0],-1/0.0117);
+
+C_digit = c2d(C, T_s,'tustin');
 
 Lmp = minreal(C*Pmp);
 
-L = minreal(P*C);
+L = minreal(P*C*Pade);
 
 S = 1/(1+L);
 
@@ -49,11 +67,11 @@ PS = P*S;
 
 CS = C*S;
 
-%%
+
 figure();
 optionss.PhaseMatchingValue=-180;
 optionss.PhaseMatchingFreq=20;
-bode(Lmp, L, optionss, {0.1,100000});
+bode(Lmp, L, optionss, {0.00001,10});
 set(findall(gcf,'type','line'),'linewidth',2);
 legend
 
@@ -63,6 +81,7 @@ set(findall(gcf,'type','line'),'linewidth',2);
 legend
 
 %%
+close all;
 
 figure();
 step(S);
@@ -78,7 +97,7 @@ step(T_PS); % Salida con referencia de escalón + perturbacion de entrada de esc
 legend
 
 figure();
-T_CS = -T + CS;
+T_CS = S + CS;
 step(T_CS); %Acción de control con referencia de escalon + pertubacion de entrada escalón
 legend
 

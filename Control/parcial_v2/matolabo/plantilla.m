@@ -31,6 +31,8 @@ bode(P, Pmp, Pap, optionss, {0.1,100000});
 set(findall(gcf,'type','line'),'linewidth',2);
 legend
 
+%%
+
 C = db2mag(0)*zpk(0,0,0);
 
 Lmp = minreal(C*Pmp);
@@ -45,7 +47,7 @@ PS = P*S;
 
 CS = C*S;
 
-%%
+
 figure();
 optionss.PhaseMatchingValue=-180;
 optionss.PhaseMatchingFreq=20;
@@ -74,7 +76,7 @@ step(T_PS); % Salida con referencia de escalón + perturbacion de entrada de esc
 legend
 
 figure();
-T_CS = -T + CS;
+T_CS = S + CS;
 step(T_CS); %Acción de control con referencia de escalon + pertubacion de entrada escalón
 legend
 

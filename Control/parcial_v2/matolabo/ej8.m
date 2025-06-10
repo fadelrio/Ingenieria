@@ -16,7 +16,9 @@ T_s = 0.0278;
 
 Pade = zpk([4/T_s],[-4/T_s],-1);
 
-P = zpk([],[-80, 4i, -4i],80);
+%P = zpk([],[-80, 4i, -4i],80);
+
+P = zpk(80/((s+80)*(s^2+4^2)));
 Pmp = P;
 Pap = zpk(0,0,1);
 
@@ -33,7 +35,7 @@ legend
 %}
 
 figure();
-bode(P, Pmp, Pap, optionss, {0.1,100000});
+bode(P, Pmp, optionss, {0.1,100000});
 set(findall(gcf,'type','line'),'linewidth',2);
 legend
 
