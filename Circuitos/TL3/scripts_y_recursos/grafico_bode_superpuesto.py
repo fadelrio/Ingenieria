@@ -31,13 +31,13 @@ decibeles2 = datos2[:, 1]   # Magnitud [dB]
 
 
 # Gráfico de magnitud [dB]
-plt.plot(frecuencia_hz1, decibeles1, label="Magnitud experimental [dB] (Punta de osc x10)", color='b')
-plt.plot(frecuencia_rad_s2, decibeles2, linestyle="--", label="Magnitud simulada [dB]", color='r')
-plt.plot(frecuencia_hz3, decibeles3, label="Magnitud experimental [dB] (Punta activa)", color= 'g')
+#plt.plot(frecuencia_hz1, decibeles1, label="Magnitud experimental [dB] (Punta de osc x10)", color='b')
+plt.plot(frecuencia_rad_s2, decibeles2, label="Magnitud simulada [dB]", color='r')
+#plt.plot(frecuencia_hz3, decibeles3, label="Magnitud experimental [dB] (Punta activa)", color= 'g')
 plt.xscale('log')  # Escala logarítmica para el eje x
 plt.ylabel('Magnitud [dB]')
 plt.ylim([5,25])
-plt.xlim([10,10e9])
+plt.xlim([50,10e8])
 plt.title('Diagrama de Bode')
 plt.grid(True, which="both", linestyle='--', linewidth=0.5)
 plt.legend()
