@@ -60,41 +60,30 @@ optionss.PhaseMatchingFreq=.1;
 optionss.Grid='on';
 
 figure();
-bode(P, optionss, {0.1,100000});
+bode(P, optionss, {0.001,10});
 set(findall(gcf,'type','line'),'linewidth',2);
 legend
-
 %%
+close all;
 
-T_s = 0.5;
+W_o = ctrb(A_eq,B_eq);
 
-Pade = zpk([4/T_s],[-4/T_s],-1);
+rango = rank(W_o);
 
-Wgc = 4*tand(30/2)/T_s;
+pol_car = charpoly(A_eq);
 
-C = db2mag(0)*zpk([-0.02 -0.05861],[0],1)*Pade;
+raices = roots(pol_car);
 
-Lmp = minreal(C*Pmp);
+%K = acker(A_eq,B_eq,[-10 -10 -10]); sin control integral
 
-L = minreal(P*C);
+%Con control integral
 
-S = 1/(1+L);
+A_amp = [A_eq zeros(3,1); -C_eq 0];
 
-T = 1-S;
+B_amp = [B_eq;-D_eq];
 
-PS = P*S;
+K_amp = acker(A_amp,B_amp,[-5 -5 -5 -5]);
 
-CS = C*S;
+K = K_amp(1:3);
 
-
-figure();
-optionss.PhaseMatchingValue=-180;
-optionss.PhaseMatchingFreq=20;
-bode(Lmp, L, optionss, {0.1,100000});
-set(findall(gcf,'type','line'),'linewidth',2);
-legend
-
-figure();
-rlocus(L);
-set(findall(gcf,'type','line'),'linewidth',2);
-legend
+K_i = -K_amp(end);

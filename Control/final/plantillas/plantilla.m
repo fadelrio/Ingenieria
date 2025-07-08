@@ -1,44 +1,39 @@
+clear all; clc 
+close all; 
+
 s = tf('s');
 
 optionss=bodeoptions;
 %optionss.MagVisible='off';
 optionss.PhaseMatching='on';
-optionss.PhaseMatchingValue=-180;
-optionss.PhaseMatchingFreq=20;
+optionss.PhaseMatchingValue=-170;
+optionss.PhaseMatchingFreq=.1;
 optionss.Grid='on';
 
-polos = [1 2];
-ceros = [7 8];
+P = zpk(0,0,0);
+Pmp = zpk(0,0,0);
+Pap = zpk(0,0,0);
 
-P = zpk([1 2],[7 8],1);
-Pmp = zpk([-1 -2],[-7 -8],1);
-
-
-Pap1 = zpk([1],[-1],-1);
-Pap2 = zpk([2],[-2],-1);
-Pap3 = zpk([-8],[8],1);
-Pap4 = zpk([-7],[7],1);
-Pap = Pap1*Pap2*Pap3*Pap4;
+%{
+Pap1 = zpk(0,0,0);
+Pap2 = zpk(0,0,0);
+Pap = Pap1*Pap2;
 
 figure();
-bode(Pap, Pap1, Pap2, Pap3, Pap4, optionss, {0.1,100000});
+bode(Pap, Pap1, Pap2, optionss, {0.1,100000});
 set(findall(gcf,'type','line'),'linewidth',2);
 legend
 
-
+%}
 
 figure();
-bode(P, Pmp, Pap, Pmp*Pap, optionss, {0.1,100000});
+bode(P, Pmp, Pap, optionss, {0.1,100000});
 set(findall(gcf,'type','line'),'linewidth',2);
 legend
 
 %%
-close all;
 
-%La wgc tiene que ser menor a .216 o mayor a 45.4, para que la parte Pap me
-%aporte menos de 30 de dafase
-
-C = db2mag(0)*zpk([],[],1);
+C = db2mag(0)*zpk(0,0,0);
 
 Lmp = minreal(C*Pmp);
 
@@ -64,14 +59,6 @@ figure();
 rlocus(L);
 set(findall(gcf,'type','line'),'linewidth',2);
 legend
-%%
-
-%Toca realimentación en espacio de estados
-
-Num = poly[];
-
-[A,B,C,D] = tf2ss(P);
-
 
 %%
 

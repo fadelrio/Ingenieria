@@ -4,15 +4,13 @@ syms x1 x2 x3 u y;
 
 x = [x1;x2;x3];
 
-Q_max = 5;
-R = 40;
-tau = 1;
+p = 0.02;
 
-f1 = Q_max*R^;
+f1 = (x3-sqrt(x1-x2))/(x1^2);
 
-f2 = x3;
+f2 = (sqrt(x1-x2)-sqrt(x2))/(x2^2);
 
-f3 = -alfa*x2^3+sin(x2)-x3+x1;
+f3 = -p*x3+p*u;
 
 f = [f1;f2;f3];
 
@@ -30,11 +28,11 @@ D = jacobian(y,u);
 
 %equilibrio-------
 
-x1e = 0;
-x2e = pi/4;
-x3e = 0;
-ue = 0;
-ye = x2e;
+x1e = 2;
+x2e = 1;
+x3e = 1;
+ue = -0.02;
+ye = 1;
 
 A = subs(A, str2sym({'x1','x2','x3','u','y'}),{x1e,x2e,x3e,ue,ye});
 B = subs(B, str2sym({'x1','x2','x3','u','y'}),{x1e,x2e,x3e,ue,ye});

@@ -74,6 +74,21 @@ Den = poly(polos);
 
 [A,B,C,D] = tf2ss(Num,Den);
 
+pol_car = charpoly(A);
+
+K = acker(A,B, [-1 -1]);
+
+
+
+[num_monio, den_monio] = ss2tf(A-B*K,B,C,D);
+
+P_monio = zpk(roots(num_monio),roots(den_monio),1);
+
+figure();
+rlocus(P_monio);
+
+figure();
+bode(P_monio*0.008, optionss, {.1,1000});
 
 %%
 
