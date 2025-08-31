@@ -1,0 +1,105 @@
+Niveles de prevención según OMS 
+
+
+Prevencion primaria: la prevencion que tenemos que actuar nosotros, evitar el accidente a traves de la madeida de prevencion que fija la normativa
+
+Prevención secundaria: realizacion de estudios a los trabajadores que estan expuestos al riesgo
+
+terciaria: atencion del accidentado o el enfermo (para el profe esta no es prevención, es atención)
+
+si tengo un riesgo y tengo una persona expuesta a ese riesgo, una posibilidad es eliminar el riesgo. Si no lo puedo eliminar, elimino a la persona (no literalmente, la reemplazo o la saco de la exposición).
+si no puedo sacar a la persona, intento sacar el problema. si no puedo hacer nada, recurro al elemento de protección personal. (éstas estan ordenadas de más a menos efectivo).
+
+El cumplir con la ley no necesariamente implica la mejor forma de prevención. muchas veces la ley solo pide elementos de protección personal.
+
+los elementos de protección no deben dificultar la tarea. se deben introducir con educación y participación ( debo decir para que se da y de que va a proteger, si es para problemas a corto o largo plazo.
+la participación es dejar que el que lo va a utilizar tenga palabra en la elección de el elemento de protección). se debe informar cada cuanto se tienen que reemplazar y/o limpiar. se debe reevaluar
+periodicamente la necesidad de el elemento.
+El uso de los elementos de protección es responsabilidad del empleador, el no uso es causa para despido.
+
+Secuencia de accidente de trabajo:
+
+segun la actividad de el trabajador se tendrá más o menos riesgos. 
+una vez identificados los riesgos se implementa la medida de prevención según normativa. si no identifico el riesgo no puedo prevenir y ocurrirán accidentes.
+
+Factores de riesgo:
+
+los factoes de riesgo son aquellos elementos que pueden generar accidentes o enfermedades.
+
+clasificación:
+
+-condiciones de seguridad: realtivas casi exclusivamente a los accidentes de trabajo: riesgo mecanico, riesgo electrico, riesgo de incendio. relacionadas con accidentes.
+
+-ambiente fisico de trabajo: relacionadas al espacio donde se trabaja: ruido, iluminación, etc.
+
+-carga fisica de trabajo: relacionada al esfuerzo fisico, etc. (ergonomía)
+
+-contaminantes quimicos y biologicos: acidos, benzeno, enfermedades.
+
+-la organización del trabajo: horarios, jornadas, estilo de mando (no es o mismo una PyME que una multinacional), la forma de pago(a destajo, mensual,semanal), estrés, acoso (laboral o sexual). todo realcionado a la carga mental.
+
+Sistema de riesgos del trabajo:
+
+- 24557 (ley) leer a quienes cubre en la diapo. El monotributista queda afuera.
+ -actores del sistema: jurisdicciones (provincias), gremios, empleadores, trabajador, art y srt.
+
+- SRT: superintendencia del riesgo del trabajo; protege a los trabajadores frente a las contingencias del trabajo y promueve las condiciones y medio ambiente de trabajo seguras.
+su funcion principal es fiscalizar las ART, elaborar normas complementarias para la actualización de leyes y decretos, fomenta el trabajo decente y la cultura de la prevención, colabora con las provincias
+para las tareasd de capacitación y prevención.
+- ART: Aseguradoras del riesgo del trabajo: brinda todas las prestaciones que dice la ley, brinda asesoramiento y asistencia tecnica a empleadores y trabajadores, y efectúa los exámenes periódicos. Tienen que
+visitar periodicamente a sus empleadores y verificar el cumplimiento de la normativa(en funcion de la tarea de la empresa), realiza evaluaciónes periodicas de los riesgos existentes y su evolución, y 
+denuncia los incumplimientos a la SRT.
+
+las art tienen que visitar a los empleadores, hace el recorrido e informa los incumplimientos a la SRT. la art puede hacer bien o mal su trabajo.
+Cuando vuelven a visitar, chequean si se arreglaron los problemas, la art no puede sancionar por el incumplimiento, solo puede resindir su contrato si se deben dos o mas cuotas, no por otros casos (muchos 
+accidentes, incumplimientos, etc) sólo puede aumentar la alicuota. la art puede poner el precio que quiera, no hay tope. la alicuota es lo que se paga por cada empleado.
+la srt manda a cada jurisdicción (ATL) las denuncias, 
+cada jurisdicción tiene potestad de sanción ante las denuncias.
+la srt hace auditorias en los empleadores, para ver que no hayan incumplimientos y para corroborar el buen funcionamiento de la art.
+los entes de jurisdiccion nacional son intervenidos directamente por la srt
+
+Accidente de trabajo: todo acontencimiento subito y violento ocurrido por el hecho o en ocasión de trabajo, o en el trayecto entre el domicilio del trabajador y el lugar de trabajo, siempre y cuando el 
+damnificado no hubiere interrumpido o alterado dicho trayecto por causas ajenas al trabajo(in itinere, cuando voy o vuelvo de mi casa). no hace referencia al puesto de trabajo, cubre mientras que suceda dentro de el contexto del trabajo. no cubre 
+cuando hay dolo (si la acción es con la intención de ganar el dinero de la art) o hay fuerza mayor(terremoto, tsunami).
+
+excepciones: tambien se considera cuando se va desde el lugar de trabajo a un lugar de estudio o viceversa, cuando se va a otro trabajo, o cuando se va a cuidar un familiar directo enfermo y no conviviente.  
+
+
+Enfermedad profesional: leer def de diapos.
+
+si la enfermedad no está en el decreto, se puede ir a la comision medica, y si ésta lo dispone, deberá cubrir la art. la realización del trámite no implica la inclusión en el listado del decreto. cada vez que
+se presente la enfermedad se deberá ir a la comision medica, si ésta no está en el decreto.
+
+los primeros 10 dias de sueldo los paga el empleador, los posteriores la art.
+
+-Denuncia:
+
+El empleador está obligado a hacer la denuncia, el trabajador tiene el derecho, la puede hacer tanto el trabajador como testigos, familiares, compañeros de trabajo. se puede realizar hasta dos años despues
+de el primer sintoma incapacitante.
+
+Incidente de trabajo: "algo que pasó pero no pasó nada". 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
