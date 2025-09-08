@@ -31,3 +31,6 @@
 [submodule "Taller de control/clases_practicas/tps_y_practicas"]
 	path = Taller de control/clases_practicas/tps_y_practicas
 	url = git@github.com:fadelrio/Taller-de-control.git
+[submodule "Taller de circuitos/TP"]
+	path = Taller de circuitos/TP
+	url = git@github.com:fadelrio/Taller-de-circuitos.git
