@@ -1,0 +1,83 @@
+Factores de riesgo (again)
+
+Contaminantes quimicos y biologicos:
+
+son aquellos contaminantes que pueden estar presentes en el ambiente de trabajo.
+
+un contaminante quimico es una materia inerte (sin vida) que está presente en al ambiente de trabajo que nos puede ocasionar un daño o una enfermedad. 
+
+toxicidad aguda: tengo daños presentes dentro de las 24/48 hs de la exposicion
+
+toxicidad cronica: causa daños a largo plazo, se manifiestan luego de un periodo de inactividad. 
+
+el contaminante puede ser solido: harina, aserrin, alumina, fibras de amianto, fibras de vidrio, humos de combustion, humos metálicos, etc.
+
+liquido o gaseoso: nieblas o brumas, aceite, acidas; vapor, tolueno, acetona; aerosoles, pintura por pulverizacion;cloro, oxidos de nitrogeno, etc.
+
+naturaleza de contaminante:
+
+en funcion de los efectos producidos los contaminantes quimicos se clasifican en:
+irritantes: cloro, oxidos de nitrogeno, etc.
+asfixiantes simples: nitrogeno.
+asfixiantes quimicos: monoxido de carbono, cianuros.
+narcoticos: hidrocarburos , alcoholes.
+neumoconióticos: silice cristalina, alúmina.
+toxicos sistémicos: plomo, manganeso, mercurio.
+cancerigenos: amianto, benceno.
+teratogénicos: dioxina, BPC.
+mutagénicos.
+
+vias de ingreso: quimicos/biologicos.
+
+via respiratoria: todo el sistema respiratorio, nariz, boca, bronquios y pulmones. Es la via de esntrada mas importante para la mayorua de los contaminantes quimicos y biologicos.
+
+via dermica: comprende toda la superficie de la piel. es la segunda via de entrada más importante.
+
+via digestiva: se entiende como tal la boca, el estomago y los intestinos. 
+
+via parenteral: se entiende como tal la  penetración directa del contaminante en el cuerpo a traves de llagas, heridas, etc. es la via de entrada más grave.
+
+
+Sistema globalmente armonizado de clasificación y etiquetado de productos quimicos (ver diapo)
+
+Suceptabilidad individual
+
+se deben considerar las caracteristicas personanles e intrinsecas del individuo, que pueden condicionar (efe no llegue mira la diapo capo)
+
+contaminantes biologicos:
+
+toda porcion de materia viva cuya presencia en el ambito laboral.
+
+virus, bacterias, protozoos, hongos, gusanos.
+
+se agrega la via de ingreso ocular.
+
+medios de transmision: agua, aire, suelo, animales, materias primas.
+
+medidas higienicas: 
+no comer, beber, fumar o tomar mate en las zonas de trabajo en las que exista dicho riesgo.
+
+proveer a los trabajadores de prendas de proteccion apropiadas o de otro tipo de prendas especiales adecuadas.
+
+disponer de baños y lugares de aseo apropiados y adecuados para el uso de los trabajadores, (no llegue, diapo)
+
+disponer de un lugar determinado para el almacenamietno adecuado de los equipos de proteccion y verificar que se limpian y se comprueba su buen funcionamiento, con anterioridad y despues de cada utilizacion, reparando o sustituyendo los equipos defectuosos antes de su nuevo uso.
+
+especificar los procedimientos de obtencion, manipulacion y procesamiento de muestras de origen humano o animal.
+
+definiones:
+
+concentracion maxima permisible ponderada en el tiempo:
+concentracion media ponderada en el tiempo para una jornada de trabajo de 8horas/dia y una semana laboral de 40hs, a la que se cree pueden estar expuestos casi todos los trabajadores repetidamente dia tras dia, sin efectos adversos.
+
+concentracion maxima permisible para cortos periodos de tiempo:
+concentracion maxima permisible en la que pueden estar expuestos los trabajadores durante un periodo continuo y hasta de 15min, sin sufrir efectos adversos siempre que no se produzcan (ver diapo)
+
+ver diapos de cmp
+
+hay formula en la diapo, ver
+c es la conentracion atmosferica de la sustancia componente d ela mezcla.
+t es la cmp correspondiente de cada sustancia.
+sumo los contaminantes que tienen el mismo efecto, tiene que ser menos de 1 para estar bien.
+si los efectos son independientes, compara por separado con 1
+
