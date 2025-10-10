@@ -9,6 +9,9 @@ tmp/
 *.swp
 *~.nib
 local.properties
+Legislacion/material_de_clases
+Legislacion/magia_de_valen/Todo.pdf
+Legislacion/magia_de_valen/ctrl_f_y_a_otra_cosa.pdf
 .settings/
 .loadpath
 .recommenders
