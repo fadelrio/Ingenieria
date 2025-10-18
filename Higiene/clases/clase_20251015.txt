@@ -1,0 +1,33 @@
+Riesgo elecrico (falta una clase a la q no fui)
+
+reglas de oro para trabajos electricos sin tension:
+
+- corte efectivo de todas las fuentes de tension
+
+- bloqueo de aparatos en corte
+
+- comprobacion de ausencia de tension
+
+- puesta a tierra y en cortocircuito
+
+- señalizacion de la zona de trabajo
+
+cumpliendo todos el riesgo es cero
+
+Riesgo de incendio y evacuacion
+
+el loco puso el triangulito de la combustion 
+
+la combustion puede ser con llama y sin llama
+
+cuando hay llama hay reaccion en cadena
+
+Clase A: paapel, madera, tejidos, goma, etc. Se puede apagar con cualquier extintor menos el de C02, conviene enfriar para apagar (se puede usar agua).
+
+Clase B: combustibles liquidos. No se tiene que apagar con agua.
+
+Clase C: origen eléctrico. No se tiene que apagar con agua.
+
+Clase D: fuego de metales combustibles. Requieren extintores especiales.
+
+Clase K: fuego de aceites vegetales. Requieren extintores especiales.
