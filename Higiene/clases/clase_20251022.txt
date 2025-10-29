@@ -1,0 +1,35 @@
+Hay medidas fijas obligatorias en ciertos casos, que tienen su propio reservorio de agua, que no se agota si se agota el agua de uso comun
+Los rociadores se compran para la temperatura que sean necesaria
+
+hay rociadores que funcionan por sector de incendio, y otros que se activan en general
+
+Normativa: hay a nivel nacional del '79 y una de caba
+
+Definiciones (normativa)
+
+- carga de fuego: peso quivalente de madera por unidad de superficie. Todos los materiales combustibles se llevan a su equivalente en peso de madera 
+
+- Coeficiente d esalida: numero de personas que pueden pasar por una salida o bajar ór una escalera por unidad de anvho de salida y poer minuto
+
+- factor de ocupacion: n| de oc por sup de piso
+
+- clasificacion de materiales segun su combustion
+
+Carga de fuego:
+
+(ver formula en diapos)
+
+Hay un programa hecho para la version mas vieja de windows que se te ocurra para calcular todo
+
+
+- con la carga de fuego y el tipo de materiales se eligen tiepos y cantidad de extintores, la resistencia al fuego y fijate en la diapo
+
+clas de materiales:
+
+explosivo, inflamable, fijate en la diapo
+
+Fxx es la cantidad de minutos que tiene que resistir el edificio donde se encuentra la carga de fuego. por ej: F90 tiene que bancarse 90 minutos
+
+Sabiendo el material saco el riesgo, despues veo en que tipo de actividad, segun la actividad y la carga saco el Fxx
+me perdi, a partir de aca ver diapos o pdeirle a martu
+
