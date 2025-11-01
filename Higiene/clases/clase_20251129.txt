@@ -1,0 +1,40 @@
+Ruido
+
+Produce hipoacusia, es la enfermedad más denunciada
+se da en industria amnufacturera y un par más
+
+Definicion de ruido: Cuando un sonido no tiene definida una composicion armonica (objetiva)
+"Sonido es lo que hago yo, ruido es lo producido por el vecino" (subjetiva)
+
+Se puede diferenciar ton e intensidad
+
+Puede provocar muchas alteraciones en distintos sistemas del cuerpo
+
+
+Segun la oms podran perder la audicion permanente debido a la musica alta de los dispositivos 
+
+Trauma acustico: ruido fuerte y puntual que rompe el timpano
+
+Hipoacusia temporaria: se produce un cambio temporario del umbral auditivo.
+
+Hipoacusia permanente: se da en el oido interno.
+
+El oido percibe de 20uPa a 100Pa, se usan los dB
+
+Nivel sonoro continuo equivalente:
+
+Es el nivel sonoro constante equivalente a el variable de las 8 horas (basicamente la media, se busca que ambas tengan la misma energia promedio)
+
+Hay una normativa que dice a que nivel sonoro continuo equivalente puedo estar expuesto, dependiendo al tiempo de exposicion
+
+como siempre por ultimo el uso del epp
+
+Dosis:
+
+c1/t1 +c2/t2 + ...
+
+tiene que ser menor a 1
+
+cn es el tiempo de exposicion a una potencia, tn es el tiempo maximo de exposicion a esa potencia
+
+
