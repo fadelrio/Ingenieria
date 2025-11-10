@@ -1,0 +1,55 @@
+Estrés termico por calor:
+
+- El ser humano es un ser de sangre caliente, el cuerpo humano trabaja para mantener la temperatura entre 36.8 y 37 grados. La temperatura de la piel es aproximadamente 35°
+
+- El cuerpo baja la temperatura mediante la transpiracion y la expansion de vasos capilares, para fomentar el intercambio de temp con el mediamb
+
+- para bajar la temp tiembla y contrae capilares
+
+- Cuando no se puede mantener la temperatura del cuerpo hay riesgo de problemas de salud
+
+- el cuerpo entre 32 y 35 grad es hipotermia leve, de 32 y 28 es moderada, y menor a 28 es grave
+
+nobody cares about this, not even the prof
+
+EL estres termico es la sensacion de malestar que se experimenta cuando la per (ver def en diapos)
+
+- el estres termico se puede notar por: apreciacion del empleador, manifestacion del trabajador o juicio del prof de higiene. 
+
+El estres temrico depende de:
+
+- condiciones hidrotermicas: medioambiente temp, hum, vel aire. condiciones meteorologicas
+
+- vestimenta utilizada: modifica el grado de intercambio de temp cuerpo_meadiamb
+
+- tasa metabolica: esfuerzo fisico realizado
+
+Se miden la temperatura globo (tiene en cuenta toda la radiación)
+temperatura de bulbo humedo (tiene en cuenta la humedad)
+temperatura de bulbo seco (la de toda la vida)
+
+Indice tgbh (valor ponderado de las 3 temps)
+
+sin carga solar: tgbh: 0.7*tbh + 0.3*tg
+
+con carga solar: 0.7*tbh + 0.2*tg + 0.1*tbs
+
+el indice se corrige con una tabla que agrega puntos en funcion de la ropa de trabajo
+
+tambien se calcula la tasa metabolica, la cual se puede medir por: evaluacion por requisitos de posturas, y valores tabulados por ciertas actividades
+
+tambien hay ciertas actividades tabuladas, con su equivaencia en Watts
+
+todo esto se compara con valores limites de una tabla (who would've guessed?)
+
+Aclimatación: 
+
+una persona acostumbrada a trabajar en temperaturas templadas va a tardar en adaptarse a trabajar en temperaturas mayores. Se toma como tiempo de aclimatación 7 dias. Se aclimata con aunmentos de 10%, empezando en 20% y llegando al 100% en el septimo día. 
+
+en las diapos hay algunas medidas correctoras. (no hace flata saberselas pero tener una idea)
+
+un trabajador no deberia perder mas de 1.5% de su peso durante la jornada.
+tampoco deberian superar sus pulsaciones las 180 por minuto
+
+en la diapo hay un cuadrito que te dice de cuantas formas te podes morir por estres termico. (no entra)
+

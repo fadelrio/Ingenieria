@@ -12,12 +12,13 @@ samplerate, data = wavfile.read(filename)
 
 def param_lpc(xs, P):
   autocorr = np.correlate(xs,xs,"full")/len(xs)
-  R = toeplitz(autocorr[:(P-1)])
-  r = autocorr[1:P]
+  print(autocorr)
+  R = toeplitz(autocorr[int(len(autocorr)/2):int(len(autocorr)/2+(P-1))])
+  r = autocorr[int(len(autocorr)/2):int(len(autocorr)/2) + P]
   A = linalg.inv(R)*r.transpose()
-  G = autocorr[0]
+  G = autocorr[int(len(autocorr)/2)]
   for i in range(1,P):
-    G -= A[i-1]*autocorr[i]
+    G -= A[i-1]*autocorr[int(len(autocorr)/2) + i]
   return A,np.sqrt(G)
 
 A, G = param_lpc(data,5)
