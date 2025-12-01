@@ -1,0 +1,18 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Resumen}{2}{section.1}%
+\contentsline {section}{\numberline {2}Introducción}{2}{section.2}%
+\contentsline {section}{\numberline {3}Modelo}{2}{section.3}%
+\contentsline {section}{\numberline {4}Estimación de parámetros del modelo}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Sonido ``a''}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Sonido ``e''}{5}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Sonido ``s''}{6}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Sonido ``sh''}{7}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Análisis de resultados}{8}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Detección de pitch}{8}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Estimación de PSD con pitch detectado}{11}{subsection.5.1}%
+\contentsline {section}{\numberline {6}Codificación y decodificación}{11}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Reconstrucción con pitch estimado}{12}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Reconstrucción con pitch fijo}{13}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Reconstrucción sin pitch}{14}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Reconstrucción con pitch sintético}{15}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Conclusiones}{16}{section.7}%

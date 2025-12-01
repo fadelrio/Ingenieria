@@ -1,0 +1,289 @@
+import numpy as np
+from scipy.linalg import toeplitz
+from scipy import linalg
+import matplotlib.pyplot as plt
+from scipy.io import wavfile
+from scipy.signal import periodogram
+from IPython.display import Audio
+from scipy.io.wavfile import write
+from scipy.signal import lfilter
+from IPython.display import Audio
+from scipy.io.wavfile import write
+
+
+def lpc(xs, P):
+
+    N = len(xs)
+
+    # Estimar autocorrelación hasta orden P
+    r_simetrica = np.correlate(xs, xs, mode='full') / N #R(-N+1), ... R(N-1)
+    mid = len(r_simetrica) // 2 ## obtengo el indice de R(0)
+    r = r_simetrica[mid:mid+P+1]  # r[0], r[1], ..., r[P]
+
+    # Construir matriz de Toeplitz R y vector r
+    R = toeplitz(r[:-1])  # R es P x P
+    r_vec = r[1:]         # Vector r para el lado derecho
+
+    # Resolver sistema lineal: R a = r_vec
+    a = np.linalg.solve(R, r_vec)
+
+    # Calcular la ganancia G
+    G2 = r[0] - np.dot(a, r[1:]) #armo G^2 teoricamente
+    G = np.sqrt(G2) if G2 > 0 else 0 # Tomo la raiz de los terminos positivos
+
+    return a, G
+
+def plot_lpc_vs_periodogram(filename, P, es_vocal=True, fs_exc=200):
+    #señal desde archivo WAV
+    fs, xs = wavfile.read(filename)
+    xs = xs.astype(float)
+    N = len(xs)
+    #coeficientes LPC y ganancia G
+    a, G = lpc(xs, P)
+    print(a)
+    print(G)
+    #estimar el periodograma usando correctamente la funcion
+    Pxx = 1/N*np.abs(np.fft.fft(xs))**2
+    f = np.fft.fftfreq(N, 1/fs)
+
+    #PSD estimada por el modelo LPC (sin fuente aún)
+    w = 2 * np.pi * f / fs  # frecuencia angular
+    A_w = np.ones_like(w, dtype=np.complex64)  # vector de unos para armar el denominador del AR(P)
+
+    #Armo el denominador 1 - a_1 * e^(-1wk) - .... -a_p . e^(-pwk)
+    for k, ak in enumerate(a):
+        A_w -= ak * np.exp(-1j * w * (k + 1))
+
+    #|H(W)|^2
+    PSD_LPC = (G**2) / (np.abs(A_w)**2)
+
+    # Modelo de excitación (fonema sonoro o sordo)
+    if es_vocal:
+        # Fuente: tren de impulsos (frecuencia fundamental fs_exc)
+        periodo = int(fs / fs_exc)
+        tren_impulsos = np.zeros(N)
+        tren_impulsos[::periodo] = np.sqrt(fs/fs_exc)
+        S_u = 1/N*np.abs(np.fft.fft(tren_impulsos))**2 #Estimar el periodograma del tren de pulsos usando correctamente la funcion
+        PSD_LPC *= S_u  # |H(W)|^2 * S_u = S_x (PSD teorica por LPC)
+    else:
+        pass ##|H(W)|^2 * 1(ruido blanco) = S_x
+
+    #se grafican las frecuencias positivas
+    mascara = f >= 0
+    f = f[mascara]
+    Pxx = Pxx[mascara]
+    PSD_LPC = PSD_LPC[mascara]
+
+    #Graficar resultados en escala dB
+    plt.figure(figsize=(10, 4))
+    plt.plot(f, 10 * np.log10(Pxx + 1e-12), label="Periodograma real")
+    plt.plot(f, 10 * np.log10(PSD_LPC + 1e-12), label="PSD LPC estimada")
+    plt.title(f"{filename} — Orden P = {P}")
+    plt.xlabel("Frecuencia [Hz]")
+    plt.ylabel("Potencia (dB)")
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+def pitch_lpc(xs, a, alpha, fs, graficar=True, nombre_audio = ""):
+
+    P = len(a)
+    N = len(xs)
+
+    # Calculo el error
+    e = np.zeros(N)
+    for n in range(P, N):
+        predictor = np.dot(a, xs[n - P:n][::-1])  # X_predictor = X(n - 1), ..., X(n - P)
+        e[n] = xs[n] - predictor #definicion del error de prediccion
+
+    # Autocorrelación
+    r = np.correlate(e, e, mode='full') #autocorrelacion del error R_e
+    r = r[len(r)//2:]  # tomo los con k >= 0 (como es simetrico solo me interesa sus k>0)
+
+    # Normalizo la autocorrelacion con sus varianza para acotar el rango entre 0 y 1
+    r /= r[0] if r[0] != 0 else 1
+
+    # grafico en cada caso al autocorrelacion del error de estimacion para verificar el calculo
+    if graficar:
+        lags = np.arange(len(r))
+        plt.figure(figsize=(8, 4))
+        plt.plot(lags, r)
+        plt.title(f"Autocorrelación del error LPC ({nombre_audio})")
+        plt.xlabel("k")
+        plt.ylabel(r"$r_e[k]$")
+        plt.grid(True)
+        plt.axhline(y=alpha, color='r', linestyle='--', label=f'Umbral α = {alpha}')
+        plt.legend()
+        plt.tight_layout()
+        plt.show()
+
+    #Para una convergencia mas rapida tomo un rango de frecuencias para las excitaciones sonoras
+    # Busco el 2do pico para calcular el periodo y frecuencia fundamental
+    #A priori se sabe que el rango del pitch debe estar entre 80 y 400hz por lo que para evitar falsos picos se acota el rango
+    kmin = int(fs / 400)  # Ignoro tonos demasiado altos (> 400 Hz)
+    kmax = int(fs / 80)   # Ignoro tonos muy bajos (< 80 Hz)
+    region = r[kmin:kmax] # defino la region a analizar
+
+    segundo_pico = np.argmax(region) + kmin #busco el K para el r_e(k) mas alto dentro de la region
+    valor_pico = r[segundo_pico]
+
+    if valor_pico >= alpha:       #hago un barrido hasta el primero que supere
+        return fs / segundo_pico
+    else:
+        return 0
+
+def sintetizar_fonema(a, G, fs, N, tipo='vocal', fp=200):
+
+    # Defino la señal sintetizada segun si es una vocal o sonido sordo
+    if tipo == 'vocal':
+        periodo = int(fs / fp)
+        u = np.zeros(N)
+        u[::periodo] = np.sqrt(fs / fp)  # armo el tren de impulsos normalizado a partir del pitch
+    elif tipo == 'sordo':
+        u = np.random.randn(N) #lo describo como ruido blanco de longitud N
+
+
+    # Filtro LPC con e^-jm -> z^-1 : H(z) = G / (1 - a1*z^-1 - a2*z^-2 - ...)
+    # Implementamos como filtro IIR, a = [1, a1, a2, ...]
+    a_filtro = np.concatenate([[1], -a])
+    x_sintetizado = lfilter(G, a_filtro, u) ##nose si se puede usar directamente lfilter
+
+    return x_sintetizado
+
+def pitch_sintetico(i, fs=8000):
+    """
+    Genera una frecuencia de pitch artificial para sustituir la frecuencia real
+    Recibe: i (índice del segmento actual), fs (sample rate)
+    Retorna: frecuencia de pitch artificial
+    """
+    fc, fa, f1, f2 = 200, 100, 250, 71
+    return fc + fa*np.sin(2*np.pi*f1/fs*i) * np.sin(2*np.pi*f2/fs*i)
+
+
+def codificacion(xs, fs, P, ventana_ms = 30, solapamiento= 0.5, alpha = 0.4):
+
+  N = len(xs)
+  #consideramos que señal no es globalmente estacionario pero si localmente (consideramos una señal ESA en cada segmento ventaneado)
+  muestreas_x_ventana = int(ventana_ms * fs / 1000)
+  paso = int((1 - solapamiento) * muestreas_x_ventana)
+
+  ventanas = []
+  parametros = []
+
+  for i in range (0, N - muestreas_x_ventana + 1, paso):
+    x_segmento = xs[i:i + muestreas_x_ventana]
+    x_segmento = x_segmento * np.hamming(len(x_segmento)) #normalizo la señal, corrected np.hamming usage
+    a, G = lpc(x_segmento, P)
+
+    fp = pitch_lpc(x_segmento, a, alpha, fs, graficar=False)
+    tipo = 'vocal' if fp > 0 else 'sordo'
+
+    parametros.append((a, G, fp, tipo))
+    ventanas.append(x_segmento)
+
+  return parametros, ventanas, muestreas_x_ventana, paso
+
+def decodificar_lpc(parametros, fs, muestreas_x_ventana, paso, variante = 'a'):
+
+#        'a' → usar pitch estimado
+#        'b' → usar pitch fijo en alguna frecuencia
+#        'c' → sin pitch (todo ruido blanco)
+#        'd' → usar pitch sintético pitch_sintetico(i)
+
+  reconstruccion = np.zeros((len(parametros) - 1) * paso + muestreas_x_ventana)
+
+
+  for i, (a, G, fp, tipo_original) in enumerate(parametros):
+    if variante == 'a':  # pitch estimado real
+      fp_usado = fp
+
+    elif variante == 'b':  # pitch fijo
+      fp_usado = 200
+
+    elif variante == 'c':  # sin pitch (todo ruido blanco)
+      fp_usado = 0
+
+    elif variante == 'd':  # pitch sintético
+      fp_usado = pitch_sintetico(i)
+    else:
+      raise ValueError("Variante no reconocida. Use: 'a', 'b', 'c', 'd'.")
+
+    if fp_usado > 0:
+      # señal vocal
+      periodo = int(fs / fp_usado)
+      u = np.zeros(muestreas_x_ventana)
+      u[::periodo] = np.sqrt(fs / fp_usado)
+    else:
+      # señal sorda
+      u = np.random.randn(muestreas_x_ventana)
+
+
+    a_filtro = np.concatenate(([1], -a))
+    x_rec_seg = lfilter(G, a_filtro, u)
+    x_rec_seg *= np.hamming(muestreas_x_ventana)
+    inicio = i * paso
+    reconstruccion[inicio:inicio+muestreas_x_ventana] += x_rec_seg
+
+  return reconstruccion
+
+
+def graficar_espectro(original, reconstruida, label, fs):
+    f1, Pxx_orig = periodogram(original, fs=fs)
+    f2, Pxx_rec = periodogram(reconstruida, fs=fs)
+
+    plt.figure(figsize=(10, 4))
+    plt.plot(f1, 10 * np.log10(Pxx_orig + 1e-12), label='Original')
+    plt.plot(f2, 10 * np.log10(Pxx_rec + 1e-12), label=f'Reconstruida ({label})', linestyle='--')
+    plt.title(f"PSD — Variante {label}")
+    plt.xlabel("Frecuencia [Hz]")
+    plt.ylabel("Potencia (dB)")
+    plt.grid(True)
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+
+
+def graficar_forma_onda(original, reconstruida, label, fs):
+    plt.figure(figsize=(10, 3))
+    tiempo = np.arange(len(original)) / fs
+    plt.plot(tiempo[:len(reconstruida)], original[:len(reconstruida)], label='Original', alpha=0.6)
+    plt.plot(tiempo[:len(reconstruida)], reconstruida, label=f'Reconstruida ({label})', alpha=0.6)
+    plt.title(f"Forma de onda — Variante {label}")
+    plt.xlabel("Tiempo [s]")
+    plt.ylabel("Amplitud")
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+
+audios = ['01','02','03', '04']
+
+for a in audios:
+
+	fs, xs = wavfile.read(f"audio_{a}.wav")
+	xs = xs.astype(float)
+	xs =- xs/np.max(np.abs(xs)) #normalizado
+
+	P = 20
+	parametros, ventanas, L, paso = codificacion(xs, fs, P, ventana_ms=30, solapamiento=0.5, alpha=0.35)
+
+	variantes = ['a', 'b', 'c', 'd']
+	titulos = {'a':'Pitch real', 'b': 'Pitch fijo', 'c':'Solo ruido blanco', 'd' : 'Pitch sintético'}
+	reconstrucciones = {}
+
+	for v in variantes:
+		x_rec = decodificar_lpc(parametros, fs, L, paso, variante=v)
+		x_rec /= np.max(np.abs(x_rec))
+		reconstrucciones[v] = x_rec
+
+		graficar_forma_onda(xs, x_rec, label=f"{a} - {titulos[v]}", fs=fs)
+
+		graficar_espectro(xs, x_rec, label=f"{a} - {titulos[v]}", fs=fs)
+
+		Audio(reconstrucciones[v], rate=fs, autoplay= True)
+
+		write(f"audio_01_reconstruido_variante_{a}_{v}.wav", fs, (reconstrucciones[v] * 32767).astype(np.int16))
+
+
