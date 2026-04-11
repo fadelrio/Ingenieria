@@ -1,0 +1,29 @@
+buscar manuales
+tpp de un mecanico, una electronica
+
+trabajaron ambos sobre el irb400
+
+ambos van hacia la implementacion de un sistema de manufactura aditiva
+
+ambos partieron de robots que no funcionaban
+
+usaron un repuesto de la placa de computadora i/o
+
+averiguar quien tiene toda la documentacion
+
+de la fuente de soldadura GMAW (correr de la lincoln electric)
+
+de la soldadora laser
+
+ver que hay disponible en los modulos de conexion (tiene puerto serie, i/o digitales y analogicas (cree)) CHEQUEAR SI TIENE PUERTO SERIE
+
+enfasis en la forma de comunicacion/comandado de la fuente
+
+documentación del eje externo, conexion (como y si es fija a la gantry) pensar conexion rapida, funcionalidad del controlador, comunicacion 
+
+GCODE
+
+ver como se comporta con los overhangs
+
+
+
