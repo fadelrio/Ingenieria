@@ -12,6 +12,7 @@
     <mapping directory="$PROJECT_DIR$/../../Embebidos/stm32/tdse_workspace_tp2/tdse-tp2_01-model_integration" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../Embebidos/stm32/tdse_workspace_tp2/tdse-tp2_02-model_integration" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../Embebidos/stm32/tdse_workspace_tp2/tdse-tp2_04-model_integration" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/robotica" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../Taller de circuitos/TP" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../Taller de control/clases_practicas/tps_y_practicas" vcs="Git" />
   </component>
