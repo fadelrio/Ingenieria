@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/../../.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../Embebidos/statecharts/my_first_statechart" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../Embebidos/statecharts/sensor_statechart" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../Embebidos/statecharts/sensor_system_actuator_statechart" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../Embebidos/statecharts/sensor_system_statechart" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../Embebidos/stm32/tdse_workspace_tp0/tdse-tp0_01-hw_sw_test" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../Embebidos/stm32/tdse_workspace_tp0/tdse-tp0_04-hw_sw_test" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../Embebidos/stm32/tdse_workspace_tp0/tdse-tp0_05-hw_sw_test" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../Embebidos/stm32/tdse_workspace_tp2/tdse-tp2_01-model_integration" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../Embebidos/stm32/tdse_workspace_tp2/tdse-tp2_02-model_integration" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../Embebidos/stm32/tdse_workspace_tp2/tdse-tp2_04-model_integration" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../Taller de circuitos/TP" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../Taller de control/clases_practicas/tps_y_practicas" vcs="Git" />
+  </component>
+</project>
