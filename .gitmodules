@@ -34,3 +34,6 @@
 [submodule "Taller de circuitos/TP"]
 	path = Taller de circuitos/TP
 	url = git@github.com:fadelrio/Taller-de-circuitos.git
+[submodule "Robotica Industrial/TPF"]
+	path = Robotica Industrial/TPF
+	url = git@github.com:fadelrio/TPF_roboticaindustrial.git
